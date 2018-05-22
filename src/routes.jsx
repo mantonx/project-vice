@@ -13,7 +13,7 @@ const Routes = () => (
     <div>
       <App>
         <Switch>
-          <Route path="/" component={Shows}/>
+          <Route path="/" component={Home}/>
           <Route exact path="/shows" component={Shows}/>
           <Route component={NoMatch}/>
         </Switch>
@@ -22,14 +22,22 @@ const Routes = () => (
   </Router>
 );
 
+class Home extends React.Component {
+  render() {
+    return <h1>Hello, Matt</h1>;
+  }
+}
+
+class Forward extends React.Component {
+  render() {
+    return <h1>Hello, Matt2</h1>;
+  }
+}
+
 class NoMatch extends React.Component {
   render() {
-  return
-    <div>
-    <img src={PageNotFound} style={{width: 400, height: 400, display: 'block', margin: 'auto', position: 'relative' }} />
-    <center><Link to="/">Return to Home Page</Link></center>
-    </div>
-  };
+    return <h1>Hello, Matt2</h1>;
+  }
 }
 
 export default Routes;
