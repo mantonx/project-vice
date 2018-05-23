@@ -32,7 +32,7 @@ class App extends Component {
     
     render() {
         return(
-            <div>
+            <div className='container'>
                 <nav>
                     <Nav shows = {this.state.shows} />
                 </nav>

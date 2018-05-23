@@ -40,19 +40,21 @@ class Nav extends Component {
   render() {
     const Previous = () => {
       if (this.state.previous) {
-        return <li><Link to={this.state.previous}>Previous</Link></li>
+        return <li><Link id='nav-item' className='prev' to={this.state.previous}>Previous</Link></li>
       }
     };
     const Next = () => {
       if (this.state.next) {
-        return <li><Link to={this.state.next}>Next</Link></li>
+        return <li><Link id='nav-item' className ='next' to={this.state.next}>Next</Link></li>
       }
     }
     return(
-        <ul>
-          {Previous()}
-          {Next()}
-        </ul>
+        <div className="nav-container">
+          <ul>
+            {Previous()}
+            {Next()}
+          </ul>
+        </div>
     );
   }
 }

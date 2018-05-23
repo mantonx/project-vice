@@ -1,7 +1,10 @@
 import React, {Component} from "react";
 import { render } from "react-dom";
+import { Responsive, WidthProvider } from 'react-grid-layout';
 import queryString from "query-string";
 import _ from 'lodash';
+
+const ResponsiveGridLayout = WidthProvider(Responsive);
 
 class Main extends Component {
   constructor(props) {
@@ -19,10 +22,13 @@ class Main extends Component {
 
   render() {
     return(
-      <div>
-        <h1>{this.state.title}</h1>
-        <img src ={this.state.image} />
-      </div>
+        <div className='show'>
+          <img src ={this.state.image} />
+          <div className="caption">
+            <h2>{this.state.episodes} Episodes</h2>
+            <h1>{this.state.title}</h1>
+          </div>
+        </div>
     );
   }
 
