@@ -41,8 +41,11 @@ body {
       padding-left: 5px;
       list-style-type: none;
 
-      #nav-item {
-        color: $white;
+      .thumb {
+        height: 130px;
+      }
+      .current {
+        opacity: 0.5;
       }
     }
   }
@@ -66,6 +69,10 @@ body {
     h2 {
       color: $light-gray;
       font-size: 0.7rem;
+    }
+
+    img {
+      max-width: 420px;
     }
   }
 }

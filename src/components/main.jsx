@@ -1,10 +1,7 @@
 import React, {Component} from "react";
 import { render } from "react-dom";
-import { Responsive, WidthProvider } from 'react-grid-layout';
 import queryString from "query-string";
 import _ from 'lodash';
-
-const ResponsiveGridLayout = WidthProvider(Responsive);
 
 class Main extends Component {
   constructor(props) {
@@ -50,7 +47,7 @@ class Main extends Component {
       this.setState({
         title: show.title,
         episodes : show.episodes,
-        image: show.product_image_url
+        image: `./${show.product_image_url}`
       });
     }
   };

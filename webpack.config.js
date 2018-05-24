@@ -1,5 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const SOURCE_DIR = path.join(__dirname, "/src");
 const BUILD_DIR = path.join(__dirname, "/dist");
@@ -38,12 +40,21 @@ module.exports = {
             loader: "sass-loader"
           }
         ]
-      },
+      }
     ]
   },
   resolve: {
     extensions: ['*', '.js', '.jsx']
   },
+  plugins: [
+    new CopyWebpackPlugin([
+      {from: SOURCE_DIR + '/images', to: 'images'} 
+    ]),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: SOURCE_DIR + '/index.html'
+    })
+  ],
   devServer: {
     contentBase: BUILD_DIR,
     port: 8080,
