@@ -8,7 +8,7 @@
   "scripts": {
     "start-api": "json-server --watch shows.json",
     "build": "webpack --mode=production --progress",
-    "start:dev": "yarn start-api & webpack-dev-server --mode development --watch --progress --display-error-details"
+    "start:dev": "yarn start-api & webpack-dev-server --mode development --watch --progress --open --display-error-details"
   },
   "dependencies": {
     "axios": "^0.18.0",

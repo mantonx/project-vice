@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import queryString from 'query-string';
-import _ from 'lodash';
 
 class Nav extends Component {
   constructor(props) {
