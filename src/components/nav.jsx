@@ -15,7 +15,7 @@ class Nav extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    let menuItems = [];
+    let menuItems, test = [];
     let id = 0;
     const parsed = queryString.parse(location.search);
     const shows = nextProps.shows;
@@ -26,7 +26,7 @@ class Nav extends Component {
     }
     shows.forEach(function (value, key) {
       if (value.id === id) {
-        let previous = (0 === key) ? shows[shows.length - 1] : shows[key - 1];
+        let previous = (key === 0) ? shows[shows.length - 1] : shows[key - 1];
         let next = (shows.length - 1 === key) ? shows[0] : shows[key + 1];
         menuItems = [previous, shows[key], next];
       }
@@ -44,11 +44,12 @@ class Nav extends Component {
           <ul>
           {items.map((item, index) => (
             <li key={item.title}>
-              {console.log(index)};
               <Link to={
                 `/shows?id=${item.id}`}>
+                {index == 0 ? <div className="nav-previous"></div> : ''}
                 <img className={`thumb ${(current === item.id) ? 'current' : ''}`} src={item.product_image_url
               }/>
+              {index == 2 ? <div className="nav-next"></div> : ''}
               </Link>
             </li>
           ))}
