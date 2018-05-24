@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import { render } from "react-dom";
-import Slider from "react-slick";
 import { Link } from 'react-router-dom'
 import queryString from "query-string";
 import _ from 'lodash';
