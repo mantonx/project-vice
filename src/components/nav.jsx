@@ -20,7 +20,8 @@ class Nav extends Component {
     if ('id' in parsed && parsed.id.match(/^[0-9a-zA-Z]+$/)) {
       ({ id } = parsed);
     } else {
-      ({ id } = shows);
+      const [show] = shows;
+      ({ id } = show);
     }
     shows.forEach((value, key) => {
       if (value.id === id) {
