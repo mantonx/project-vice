@@ -27,6 +27,7 @@ body {
     .nav-container {
       display: flex;
       justify-content: center;
+      transition: all .5s ease;
     }
     
     ul {
@@ -41,13 +42,13 @@ body {
       padding-left: 5px;
       list-style-type: none;
       
-      .nav-previous,
+      .nav-prev,
       .nav-next {
         display: inline-block;
         margin-top: 55px;
       }
 
-      .nav-previous {
+      .nav-prev {
         float: left;
         padding-right: 5px;
       }
@@ -57,7 +58,7 @@ body {
         padding-left: 5px;
       }
 
-      .nav-previous:before,
+      .nav-prev:before,
       .nav-next:before {
         content: "\2190";
         color: white;
@@ -86,6 +87,7 @@ body {
     flex: 2;
     align-items: center;
     justify-content: center;
+    
     .caption {
       line-height: 0.5rem;
       text-transform: uppercase;
@@ -112,6 +114,7 @@ body {
   nav {
     order: 2;
   }
+
   main {
     .show {
       img {

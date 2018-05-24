@@ -1,47 +1,43 @@
-import React, {Component} from "react";
-import { render } from "react-dom";
+import React, { Component } from 'react';
 
 import fetchShows from '../utils/fetch';
 import Nav from './nav';
 import Main from './main';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          error: null,
-          isLoaded: false,
-          shows: [],
-        };
-    }
-    
-    componentDidMount() {
-        fetchShows().then((data) => {
-            this.setState({
-              isLoaded: true,
-              shows: data
-            });
-          },
-          (error) => {
-              this.setState({
-                isLoaded: true,
-                error
-              });
+  constructor(props) {
+    super(props);
+    this.state = {
+      shows: [],
+    };
+  }
+
+  componentDidMount() {
+    fetchShows().then(
+      (data) => {
+        this.setState({
+          shows: data,
         });
-    }
-    
-    render() {
-        return(
-            <div className='container'>
-                <nav>
-                    <Nav shows = {this.state.shows} />
-                </nav>
-                <main>
-                    <Main shows = {this.state.shows}/>
-                </main>
-            </div>
-        );
-    }
+      },
+      (error) => {
+        console.error(error);
+      },
+    );
+  }
+
+  render() {
+    const { shows } = this.state;
+    return (
+      <div className="container">
+        <nav>
+          <Nav shows={shows} />
+        </nav>
+        <main>
+          <Main shows={shows} />
+        </main>
+      </div>
+    );
+  }
 }
 
 export default App;

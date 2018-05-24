@@ -1,10 +1,9 @@
-const webpack = require('webpack');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const SOURCE_DIR = path.join(__dirname, "/src");
-const BUILD_DIR = path.join(__dirname, "/dist");
+const SOURCE_DIR = path.join(__dirname, '/src');
+const BUILD_DIR = path.join(__dirname, '/dist');
 
 module.exports = {
   stats: {
@@ -17,7 +16,7 @@ module.exports = {
   output: {
     path: BUILD_DIR,
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -31,24 +30,24 @@ module.exports = {
         test: /\.scss$/,
         use: [
           {
-            loader: "style-loader"
+            loader: 'style-loader',
           },
           {
-            loader: "css-loader"
+            loader: 'css-loader',
           },
           {
-            loader: "sass-loader"
-          }
-        ]
-      }
-    ]
+            loader: 'sass-loader',
+          },
+        ],
+      },
+    ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx'],
   },
   plugins: [
     new CopyWebpackPlugin([
-      {from: SOURCE_DIR + '/images', to: 'images'} 
+      { from: SOURCE_DIR + '/images', to: 'images' } 
     ]),
     new HtmlWebpackPlugin({
       filename: 'index.html',
@@ -58,6 +57,6 @@ module.exports = {
   devServer: {
     contentBase: BUILD_DIR,
     port: 8080,
-    historyApiFallback: true
-  }
+    historyApiFallback: true,
+  },
 };
